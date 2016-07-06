@@ -1,0 +1,30 @@
+
+
+	div {box-sizing: border-box;}
+	html {background-color: #680000;}
+	label {display:block;font-family: 'Roboto', sans-serif;font-weight: 400;margin-bottom:5px;}
+	h1, h2 {font-family: 'Roboto', sans-serif;font-weight:700;border-bottom:2px solid #ffffff;width:100%;}
+	input {display:block;margin-bottom:15px;width:100%;border:none;padding:6px;color:#222947;}
+	.slide-show-inputs:nth-of-type(odd) input {background-color:#fa6666;}
+	.slide-show-inputs:nth-of-type(even) input {background-color:#f8d6d6;}
+	.fields {width:50%;padding-right:20px;border-right:2px solid #ffffff;display:inline-block;}
+	.notes {width:50%;display:inline-block;font-family: 'Roboto', sans-serif;padding-left:20px;vertical-align:top;}
+	.dealsform {width:75%;margin:20px auto;color:#ffffff;padding:15px;}
+	.dealtext, .readmoretext  {height:100px;display:block;margin-bottom:15px;width:100%;background-color:#fa6666;border:none;padding:6px;color:#222947;}
+	.checkbox {width: 13px!important;height:13px!important; margin-right: 10px;display: inline-block;vertical-align: text-top;position:relative!important;}
+	.checkboxlabel {display:inline-block;width:130px;}
+	#codeOutput {width:100%;height:300px;}
+	.readmoretext {height:200px;}
+	.button {background-color:#cccccc;height:50px;color:#222947;font-weight:700;font-size:1.2em;}
+	.caption-text {height:25px;display:block;margin-bottom:15px;width:100%;background-color:#fa6666;border:none;padding:6px;color:#222947;}
+	.button:hover {background-color:#d5d5d5;color:#000000;cursor:pointer;}
+	.clearboth {clear:both;}
+	.hidden {display:none;}
+	.slide-show-image {width:95%;display:inline-block;}
+	.slide-show svg {width:5%;height:5%;display:inline-block;fill:#ffffff;    vertical-align: middle;box-sizing: border-box;padding: 0 0 3px 3px;}
+	.slide-show {border-bottom:2px solid #ffffff;padding-bottom:5px;margin-bottom:5px;}
+	.caption-label {display:inline-block;}
+
+
+
+

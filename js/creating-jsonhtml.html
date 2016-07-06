@@ -1,0 +1,41 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+  
+		var info = [
+					{
+							"img_src" : "Nothing",
+							"img_alt" : "Nothing",
+							"img_cap" : "Nothing"
+						}
+						]
+						
+    $(document).ready(function() {
+    	var sourceValue = $(".source").val();
+							var alttextValue = $(".alttext").val();
+							var captionValue = $(".caption").val();
+						$(".clickhere").click(function() {
+							alert('Working Dance');
+							var sourceValue = $(".source").val();
+							var alttextValue = $(".alttext").val();
+							var captionValue = $(".caption").val();
+
+							sourceValue.push(info.img_src);
+							
+						});	
+					});
+				
+</script>
+
+
+<label>Image Source</label>
+<input title="source" type="text" class="source">
+
+<label>Alt Text</label>
+<input title="lattxt" type="text" class="alttxt">
+
+<label>Caption</label>
+<input title="caption" type="text" class="caption">
+
+
+<button class="clickhere">Click Here</button>
