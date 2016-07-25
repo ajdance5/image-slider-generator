@@ -1,6 +1,6 @@
    $(document).ready(function() {
 		
-			function captionText() {
+			/*function captionText() {
 				if ($('.caption-check').prop('checked') == true) {
 					
 					$('.caption-text').show();
@@ -8,7 +8,7 @@
 
 				else {	
 						$('.caption-text').hide();
-					}
+					}*/
 				
 			}
 
@@ -20,7 +20,7 @@
 							newSlide();
 							captionText();
 
-						$('.caption-check').click(function() {
+						/*$('.caption-check').click(function() {
 					
 							if ($(this).prop('checked') == true) {
 									
@@ -30,7 +30,7 @@
 							else {	
 									$(this).parent().find('.caption-text').hide();
 								}
-						});
+						});*/
 				});
 			}
 
@@ -39,7 +39,7 @@
 		captionText();
 
 
-		$('.caption-check').click(function() {
+		/*$('.caption-check').click(function() {
 	
 			if ($(this).prop('checked') == true) {
 					
@@ -49,6 +49,8 @@
 			else {	
 					$(this).parent().find('.caption-text').hide();
 				}
-		});
+		});*/
+
+
 
 	});

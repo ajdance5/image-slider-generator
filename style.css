@@ -1,15 +1,20 @@
 
 
 	div {box-sizing: border-box;}
-	html {background-color: #680000;}
-	label {display:block;font-family: 'Roboto', sans-serif;font-weight: 400;margin-bottom:5px;}
+	html {background-color: #ffffff;}
+	label, p, .remodal-trigger  {display:block;font-family: 'Roboto', sans-serif;font-weight: 400;margin-bottom:5px;}
+	.remodal-trigger {text-align: right}
 	h1, h2 {font-family: 'Roboto', sans-serif;font-weight:700;border-bottom:2px solid #ffffff;width:100%;}
 	input {display:block;margin-bottom:15px;width:100%;border:none;padding:6px;color:#222947;}
+	header {background: #660000}
+	header>div {width:75%;margin:0px auto;color:#ffffff;padding:20px 0;}
+	body {margin:0;}
 	.slide-show-inputs:nth-of-type(odd) input {background-color:#fa6666;}
 	.slide-show-inputs:nth-of-type(even) input {background-color:#f8d6d6;}
-	.fields {width:50%;padding-right:20px;border-right:2px solid #ffffff;display:inline-block;}
+
+	.fields {width:50%;padding-right:20px;border-right:2px solid #999999;display:inline-block;}
 	.notes {width:50%;display:inline-block;font-family: 'Roboto', sans-serif;padding-left:20px;vertical-align:top;}
-	.dealsform {width:75%;margin:20px auto;color:#ffffff;padding:15px;}
+	.dealsform {width:75%;margin:20px auto;color:#333333;padding:15px;}
 	.dealtext, .readmoretext  {height:100px;display:block;margin-bottom:15px;width:100%;background-color:#fa6666;border:none;padding:6px;color:#222947;}
 	.checkbox {width: 13px!important;height:13px!important; margin-right: 10px;display: inline-block;vertical-align: text-top;position:relative!important;}
 	.checkboxlabel {display:inline-block;width:130px;}
@@ -20,10 +25,26 @@
 	.button:hover {background-color:#d5d5d5;color:#000000;cursor:pointer;}
 	.clearboth {clear:both;}
 	.hidden {display:none;}
-	.slide-show-image {width:95%;display:inline-block;}
-	.slide-show svg {width:5%;height:5%;display:inline-block;fill:#ffffff;    vertical-align: middle;box-sizing: border-box;padding: 0 0 3px 3px;}
-	.slide-show {border-bottom:2px solid #ffffff;padding-bottom:5px;margin-bottom:5px;}
+	.slide-show-image {width:100%;display:inline-block;}
+	.slide-show svg {width:5%;height:5%;display:none;fill:#999999; vertical-align: middle;box-sizing: border-box;padding: 0 0 3px 3px;}
+	.fields div:last-of-type svg {display:inline-block;}
+	.fields div:last-of-type .slide-show-image {width:95%;}
+
+	.slide-show {border-bottom:2px solid #999999;padding-bottom:5px;margin-bottom:5px;}
 	.caption-label {display:inline-block;}
+	.hide-this {background: transparent;}
+	.remodal {width:100%;height:100%;position:absolute;top:0;left:0;background:rgba(51, 51, 51, 0.7);display:none;z-index: 1000;}
+	.remodal>div {background: #ffffff;width:75%;margin:150px auto;padding:20px;position:relative;}
+	.cancel-button {position:absolute;top:5px;right:5px;width:3%;cursor:pointer;fill: #999;}
+	.cancel-button:hover {fill:#800000;}
+	.remodal>div textarea {width:100%;margin:15px auto;}
+	.plain-css {height:350px;}
+	footer {background:#cccccc;padding:20px 12.5%;}
+	footer div {border-top:1px solid #333333; padding:10px 0;color:#333333;}
+	footer div p:first-of-type {float: left}
+	footer div p:last-of-type {float:right;}
+
+
 
 
 

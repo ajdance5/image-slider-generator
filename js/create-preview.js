@@ -3,7 +3,7 @@
 
 var myApp = angular.module('myApp', []);
 
-myApp.controller('MyController', function MyController($scope) {
+myApp.controller('MyController', function MyController($scope, $timeout) {
 	
 	$scope.imageSrcLength =  document.getElementsByClassName("image-source-value").length;
 	 
@@ -11,10 +11,32 @@ myApp.controller('MyController', function MyController($scope) {
 
 	$scope.images = [
 						{
-							id: "test1"
+							id: "test1",
+							imageSrc : "http://searchengineland.com/figz/wp-content/seloads/2015/12/google-amp-fast-speed-travel-ss-1920-800x450.jpg",
+							captionText: "Google Image",
+							altTextInput: "Google Image on road"
+						
+						},
+						{
+							id: "test2",
+							imageSrc : "http://searchengineland.com/figz/wp-content/seloads/2015/10/google-panda-name3-ss-1920-800x450.jpg",
+							captionText: "The Google Panda update targets spammy content",
+							altTextInput: "Google Panda cartoon"
+						},
+						{
+							id: "test3",
+							imageSrc : "https://www.vivadigital.net/wp-content/uploads/2016/04/google.jpg",
+							captionText: "Google is a network of indexed pages that are brought to you with keywords",
+							altTextInput: "Google brain illustration"
+					
 						}
 
+
+
 	];
+
+
+					
 
 	$scope.sliderArray = [];
 
@@ -52,7 +74,7 @@ myApp.controller('MyController', function MyController($scope) {
 	 		};
 
 	 	};
-
+	 	$timeout($scope.getArray, 100);
 
 	 $scope.createCode = function() {
 
