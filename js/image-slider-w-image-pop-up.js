@@ -486,9 +486,10 @@
               var captionDiv = document.getElementsByClassName("caption");
               var captionLength = document.getElementsByClassName("caption").length;
             
-              for (var i = 0; i < captionLength -1 ; i++) {
+              for (var i = 0; i < captionLength ; i++) {
                 if (captionDiv[i].getElementsByTagName('p')[0].innerHTML.length == 0) {
                   captionDiv[i].className = "caption hide-this";
+                 
                 }
               } 
 
@@ -513,11 +514,30 @@
           $(".container-slide section:first-of-type").addClass('selected-img');
         }
       
-      setTimeout(addSelected, 250)
+  function removeCaption() {
+
+              var captionDiv = document.getElementsByClassName("caption");
+              var captionLength = document.getElementsByClassName("caption").length;
+            
+              for (var i = 0; i < captionLength ; i++) {
+                if (captionDiv[i].getElementsByTagName('p')[0].innerHTML.length == 0) {
+                  captionDiv[i].className = "caption hide-this";
+                  
+                }
+              } 
+
+        }
+
+      
+      setTimeout(addSelected, 250);
       setTimeout(scriptToLoad, 500); 
+      setTimeout(removeCaption, 400);
  
 
     });
+
+
+
    function addSelectedBoth() {
           $(".container-slide section:first-of-type").addClass('selected-img');
           $(".container-slide-preview section:first-of-type").addClass('selected-img');
@@ -525,6 +545,7 @@
         }
   setTimeout(scriptToLoad, 200);
   setTimeout(addSelectedBoth, 300);
+   
 
  
 
