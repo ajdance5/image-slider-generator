@@ -12,22 +12,22 @@ myApp.controller('MyController', function MyController($scope, $timeout) {
 	$scope.images = [
 						{
 							id: "test1",
-							imageSrc : "http://searchengineland.com/figz/wp-content/seloads/2015/12/google-amp-fast-speed-travel-ss-1920-800x450.jpg",
-							captionText: "Google Image",
-							altTextInput: "Google Image on road"
+							imageSrc : "http://imageslider.nfshost.com/images/watermelon-on-head.png",
+							captionText: "Friendly, fruity friend keeping cool",
+							altTextInput: "girl with watermelon on her head"
 						
 						},
 						{
 							id: "test2",
-							imageSrc : "http://searchengineland.com/figz/wp-content/seloads/2015/10/google-panda-name3-ss-1920-800x450.jpg",
-							captionText: "The Google Panda update targets spammy content",
-							altTextInput: "Google Panda cartoon"
+							imageSrc : "http://imageslider.nfshost.com/images/hit-the-pinata.png",
+							captionText: "William Wallace at a children's party",
+							altTextInput: "braveheart attacks a pinata"
 						},
 						{
 							id: "test3",
-							imageSrc : "https://www.vivadigital.net/wp-content/uploads/2016/04/google.jpg",
-							captionText: "Google is a network of indexed pages that are brought to you with keywords",
-							altTextInput: "Google brain illustration"
+							imageSrc : "http://imageslider.nfshost.com/images/reptile-business-man.png",
+							captionText: "Tyrannosaurus Excel",
+							altTextInput: "reptile businessman"
 					
 						}
 
@@ -38,7 +38,26 @@ myApp.controller('MyController', function MyController($scope, $timeout) {
 
 					
 
-	$scope.sliderArray = [];
+	$scope.sliderArray = [
+			{
+							sourceValue : "http://imageslider.nfshost.com/images/watermelon-on-head.png",
+							captionTextValue : "Friendly, fruity friend keeping cool",
+							altTextValue: "girl with watermelon on her head"
+						
+						},
+						{
+							sourceValue : "http://imageslider.nfshost.com/images/hit-the-pinata.png",
+							captionTextValue: "William Wallace at a children's party",
+							altTextValue: "braveheart attacks a pinata"
+						},
+						{
+							sourceValue : "http://imageslider.nfshost.com/images/reptile-business-man.png",
+							captionTextValue: "Tyrannosaurus Excel",
+							altTextValue: "reptile businessman"
+					
+						}
+
+	];
 
 
 	$scope.addImage = function() {

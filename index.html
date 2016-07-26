@@ -19,8 +19,7 @@
 	<script src="js/remodal-script.js" type="text/javascript"></script>
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 
-	<!--<script type="text/javascript" src="js/creating-json.js"></script>-->
-	<script src="js/new-form-section.js" type="text/javascript"></script>
+
 	<script src="js/create-preview.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="slider-style.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -159,11 +158,37 @@
 	</svg>
 <label>Offsite Link Tag</label>
 <textarea class="script-tag">
-<link rel="stylesheet" type="text/css" href="http://imageslider.nfshost.com/slider-style.css">		
+<link rel="stylesheet" type="text/css" href="http://imageslider.nfshost.com/slider-links/imageSliderStyle.css">		
 </textarea>
 
 <label>CSS Styling</label>
 <textarea class="plain-css">
+.small-1 {width: 8.33333%}
+.small-2 {width: 16.66667%}
+.small-3 {width: 25%}
+.small-4 {width: 33.33333%}
+.small-5 {width: 41.66667%}
+.small-6 {width: 50%}
+.small-7 {width: 58.33333%}
+.small-8 {width: 66.66667%}
+.small-9 {width: 75%}
+.small-10 {width: 83.33333%}
+.small-11 {width: 91.66667%}
+.small-12 {width: 100%}
+.small-offset-0 {margin-left: 0% !important}
+.small-offset-1 {margin-left: 8.33333% !important}
+.small-offset-2 {margin-left: 16.66667% !important}
+.small-offset-3 {margin-left: 25% !important}
+.small-offset-4 {margin-left: 33.33333% !important}
+.small-offset-5 {margin-left: 41.66667% !important}
+.small-offset-6 {margin-left: 50% !important}
+.small-offset-7 {margin-left: 58.33333% !important}
+.small-offset-8 {margin-left: 66.66667% !important}
+.small-offset-9 {margin-left: 75% !important}
+.small-offset-10 {margin-left: 83.33333% !important}
+.small-offset-11 {margin-left: 91.66667% !important}
+.column {position: relative;float: left}
+.full-slider-section, .full-slider-section div, .full-slider-section section {box-sizing: border-box;}
 /*Slider Style*/
 .slider-header {font-size:1.5em;text-align: center;}
 .container-fixed {white-space:nowrap;position:relative;overflow:hidden;padding:0;border:4px solid #5e5e5e;}
@@ -175,7 +200,7 @@
 .individual-slide nav div {padding:2%;}
 .caption {position:absolute;color:#ffffff;padding:7px;background-color: rgba(71, 71, 71, 0.7);bottom:0;left:0;width:100%;    padding: 10px 10px 15px;}
 .caption p {margin:0;white-space: initial;}
-.full-slider-section svg {width: 100%;height:100%;margin: 0 auto 0;display: block;fill:#666666;}
+.full-slider-section svg {width: 50px;height:50px;margin: 0 auto 0;display: block;fill:#666666;}
 .ancap-info { font-size: 1.2em; padding: 3%;font-weight: 800;}
 .ancap-info span {display:block;font-weight: 500}
 .nav-arrow {z-index:2; display: -ms-flexbox;display: -webkit-flex; display: flex;padding:5px; -webkit-align-items: center;-ms-flex-align: center; align-items: center;}
@@ -198,13 +223,23 @@
 .trans-box {cursor: pointer;}
 .image-slider-remodal img {width:100%;}
 
+.remodal {width:100%;height:100%;position:absolute;top:0;left:0;background:rgba(51, 51, 51, 0.7);display:none;z-index: 1000;}
+.remodal>div {background: #ffffff;width:75%;margin:150px auto;padding:20px;position:relative;}
+.cancel-button {position:absolute;top:5px;right:5px;width:3%;cursor:pointer;fill: #999;}
+.cancel-button:hover {fill:#800000;}
+
+
+  
 @media screen and (max-width:642px) {
+    
 .column-no-padding {padding-left: 0;padding-right:0;}
 .full-slider-section svg {width:100%;}
 .caption {display:none;}
+/*.preview-slider {float:left;}*/
 .nav-arrow {background-color: rgba(255,255,255,0.75);}
 .ie-margin svg {margin:-100 auto 0;}
-}
+
+  }
 </textarea>
 
 </div>
@@ -225,7 +260,8 @@
 	</svg>
 <label>Offsite Link Tag</label>
 <textarea class="script-tag">
-			
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script src="http://imageslider.nfshost.com/slider-links/image-slider-jquery.js" type="text/javascript"></script>		
 </textarea>
 <label>jQuery</label>
 <textarea class="plain-css">
@@ -259,13 +295,13 @@
                           var numberDivs = $(this).find(".container-slide-preview section").length;
                   
                           if (numberDivs <= 6) {
-                            var previewWidth = $(this).find(".image-preview-fixed").width();
+                            var previewWidth = $(this).find(".image-preview-fixed")[0].getBoundingClientRect().width;
 
                             $(this).find(".individual-slide-preview").css("width", previewWidth / numberDivs + "px");
                            }
                       
                           if (numberDivs > 6) {
-                              var previewWidth = $(this).find(".image-preview-fixed").width();
+                              var previewWidth = $(this).find(".image-preview-fixed")[0].getBoundingClientRect().width;
                               var previewWidth6 = previewWidth / 6;
                                $(this).find(".individual-slide-preview").css("width", previewWidth6 + "px");
                               }
@@ -279,13 +315,17 @@
                     
                         function slideShowSizing() {
                           $(".full-slider-section").each(function() {  
-                              var sliderWidth = $(this).find(".container-fixed").width();
-                         
+                               
+                              var sliderWidth = $(this).find(".container-fixed")[0].getBoundingClientRect().width;                           
                               $(this).find(".individual-slide").css("width", sliderWidth);
-                             
-                              var sliderHeight = $(this).find(".container-slide").height();
+                               var sliderHeight = $(this).find(".container-slide")[0].getBoundingClientRect().height;
                               $(this).find(".container-fixed").css("height", sliderHeight);
                                $(this).find('.trans-box').css("height", sliderHeight);
+                               var sliderWidth = $(this).find(".container-fixed")[0].getBoundingClientRect().width;                           
+                              $(this).find(".individual-slide").css("width", sliderWidth);
+                             
+                             
+                            
                          });
                        }
               
@@ -293,69 +333,11 @@
                 slideShowSizing();
 
                 
-               
-            $('.primary-button').click(function() {
-
-
-              function imageSliderClick() { 
-                 $(".full-slider-section").each(function() { 
-
-                var oneSlide = $(this).parent().parent().find(".individual-slide")[0].getBoundingClientRect().width;
-                var leftValue = $(this).parent().parent().find(".container-slide").css("left");
-                var leftValueParse = parseFloat(leftValue, 10);
-                var indivPrevWidth = $(this).parent().parent().find(".individual-slide-preview")[0].getBoundingClientRect().width;
-                var prevLeftValue = $(this).parent().parent().find(".container-slide-preview").css("left");
-                var prevLeftValueParse = parseFloat(prevLeftValue); 
-
-                previewSizing();
-                slideShowSizing();
-                
-                //Reposition main images on resize
-                var newOneSlide = $(this).find(".individual-slide")[0].getBoundingClientRect().width;
-               
-          
-
-                var oneSlideDiff = Math.abs(oneSlide/newOneSlide)
-                var newLeftValue = Math.abs(leftValueParse/oneSlideDiff);
-                $(this).find(".container-slide").css("left", - newLeftValue);
-
-                
-                //Reposition preview slides
-                //Get width of individual slide
-                var newPreviewTile = $(this).find(".individual-slide-preview")[0].getBoundingClientRect().width;
-                var prevSlideDiff = Math.abs(indivPrevWidth/newPreviewTile);
-               
-                //Get new left value
-                var newPrevLeftValue = Math.abs(prevLeftValueParse/prevSlideDiff);
-              
-                //set new left value
-              
-                $(this).find(".container-slide-preview").css("left", - newPrevLeftValue);
-       
-                
-                //Recalculate values
-                sliderWidth = $(this).find(".container-fixed")[0].getBoundingClientRect().width;  
-                oneSlide = $(this).find(".individual-slide")[0].getBoundingClientRect().width;             
-                rightStop = $(this).find(".container-slide")[0].getBoundingClientRect().width; 
-                leftValue = $(this).find(".container-slide").css("left");
-                leftValueParse = parseFloat(leftValue, 10);
-               
-
-                indivPrevWidth = $(this).find(".individual-slide-preview")[0].getBoundingClientRect().width;
-                prevLeftValue = $(this).find(".container-slide-preview").css("left");
-                prevLeftValueParse = parseFloat(prevLeftValue);
-                previewSlideWidth = $(this).find('.individual-slide-preview')[0].getBoundingClientRect().width;
-              
-              });
-            }
-
-            setTimeout(imageSliderClick, 200)
-
-            });    
-           
+  
 
 
             $(window).on('resize', function(){
+
 
               $(".full-slider-section").each(function() { 
 
@@ -414,7 +396,7 @@
             //Left arrow nav
         
               $(".nav-left").click(function() {
-                var sliderWidth = $(this).parent().parent().find(".container-fixed").width();
+                var sliderWidth = $(this).parent().parent().find(".container-fixed")[0].getBoundingClientRect().width;
                 var numberDivs = $(this).parent().parent().find(".container-slide-preview section").length;
                  var oneSlide = $(this).parent().parent().find(".individual-slide")[0].getBoundingClientRect().width;
                 var rightStop = $(this).parent().parent().find(".container-slide")[0].getBoundingClientRect().width;
@@ -499,7 +481,7 @@
             $(".nav-right").each(function() {
 
               $(this).click(function() {
-                var sliderWidth = $(this).parent().parent().find(".container-fixed").width();
+                var sliderWidth = $(this).parent().parent().find(".container-fixed")[0].getBoundingClientRect().width;
                 var numberDivs = $(this).parent().parent().find(".container-slide-preview section").length;
                 var oneSlide = $(this).parent().parent().find(".individual-slide")[0].getBoundingClientRect().width;
                 var rightStop = $(this).parent().parent().find(".container-slide")[0].getBoundingClientRect().width;
@@ -589,29 +571,42 @@
                 });
              });
           
-          function positionRemodal() {
+          /*function positionRemodal() {
 
-            newRemodalOneSlide = $('.image-slider-remodal').find('.container-fixed').width();
+            newRemodalOneSlide = $('.image-slider-remodal').find('.container-fixed')[0].getBoundingClientRect().width;
           }
 
       
 
         $('.individual-slide img').click(function() {
 
+            $(this).clone().addClass("preview-image").appendTo('.image-slider-remodal');
+            
+            $(this).parent().parent().parent().parent().parent().parent().find('.remodal').toggle();
+            
+          });
+          $(".cancel-button, .remodal").click(function(e){
+            $(".remodal").css("display", "none");
+            $(this).parent().find(".preview-image").remove();
+          });
+
+          $(".remodal div").click(function(e){
+            e.stopPropagation();
+
             var remodalLeftValue = $(this).parent().parent().css("left");
             var remodalLeftValueParse = parseFloat(remodalLeftValue); 
             var remodalOneSlide = $(this).parent().parent().find('.individual-slide')[0].getBoundingClientRect().width;
             $('.image-slider-remodal .full-slider-section').remove();
-            $(this).parent().parent().parent().parent().parent().clone(true, true).appendTo('.image-slider-remodal');
+            $(this).parent().parent().parent().parent().clone(true, true).appendTo('.image-slider-remodal');
             
             setTimeout(previewSizing, 100);
             setTimeout(slideShowSizing, 100);
             
-            var newRemodalOneSlide = $('.image-slider-remodal').find('.individual-slide').width();
+            var newRemodalOneSlide = $('.image-slider-remodal').find('.individual-slide')[0].getBoundingClientRect().width;
             var remodalOneSlideDiff = Math.abs(remodalOneSlide/newRemodalOneSlide);
             var newRemodalLeftValue = Math.abs(remodalLeftValueParse/remodalOneSlideDiff);
 
-            function remodalNewSize() {newRemodalOneSlide = $('.image-slider-remodal').find('.individual-slide').width();}
+            function remodalNewSize() {newRemodalOneSlide = $('.image-slider-remodal').find('.individual-slide')[0].getBoundingClientRect().width;}
             function remodalDiff() {remodalOneSlideDiff = Math.abs(remodalOneSlide/newRemodalOneSlide);}
             function remodalLeft() {newRemodalLeftValue = Math.abs(remodalLeftValueParse/remodalOneSlideDiff);}
             setTimeout(remodalNewSize, 100);
@@ -625,16 +620,13 @@
             
             setTimeout(changeLeft, 100);
             
-            console.log(remodalLeftValue);/*Correct*/
-            console.log(remodalLeftValueParse);/*Correct*/
-            console.log(remodalOneSlide);/*Correct*/
-
-            console.log(newRemodalOneSlide);
-            console.log(newRemodalLeftValue);
+           
             
           
         });
 
+       
+*/
       
 
 
@@ -647,8 +639,13 @@
 
 <footer>
 	<div>
-	<p>Alexander J Dance</p>	
-	<p><a href="privacy-policy.html">Privacy Policy</p>
+		<section class="footer-left">
+			<p>Alexander J Dance</p>
+		</section><!--
+		--><nav class="footer-right">
+			<p><a href="privacy-policy.html">Privacy Policy</a></p>
+			<p>All placeholder images from <a href="http://gratisography.com">Gratisography</a></p>
+		</nav>
 
 	</div>
 	<figure class="clearboth"></figure>

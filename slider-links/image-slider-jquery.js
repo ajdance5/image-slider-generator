@@ -1,11 +1,4 @@
-  
-
-  $(document).ready(function(){
-
-
-
-
-
+ window.addEventListener("load", scriptToLoad, false);
     
     function scriptToLoad(){
 
@@ -35,13 +28,13 @@
                           var numberDivs = $(this).find(".container-slide-preview section").length;
                   
                           if (numberDivs <= 6) {
-                            var previewWidth = $(this).find(".image-preview-fixed").width();
+                            var previewWidth = $(this).find(".image-preview-fixed")[0].getBoundingClientRect().width;
 
                             $(this).find(".individual-slide-preview").css("width", previewWidth / numberDivs + "px");
                            }
                       
                           if (numberDivs > 6) {
-                              var previewWidth = $(this).find(".image-preview-fixed").width();
+                              var previewWidth = $(this).find(".image-preview-fixed")[0].getBoundingClientRect().width;
                               var previewWidth6 = previewWidth / 6;
                                $(this).find(".individual-slide-preview").css("width", previewWidth6 + "px");
                               }
@@ -55,13 +48,17 @@
                     
                         function slideShowSizing() {
                           $(".full-slider-section").each(function() {  
-                              var sliderWidth = $(this).find(".container-fixed").width();
-                         
+                               
+                              var sliderWidth = $(this).find(".container-fixed")[0].getBoundingClientRect().width;                           
                               $(this).find(".individual-slide").css("width", sliderWidth);
-                             
-                              var sliderHeight = $(this).find(".container-slide").height();
+                               var sliderHeight = $(this).find(".container-slide")[0].getBoundingClientRect().height;
                               $(this).find(".container-fixed").css("height", sliderHeight);
                                $(this).find('.trans-box').css("height", sliderHeight);
+                               var sliderWidth = $(this).find(".container-fixed")[0].getBoundingClientRect().width;                           
+                              $(this).find(".individual-slide").css("width", sliderWidth);
+                             
+                             
+                            
                          });
                        }
               
@@ -69,122 +66,11 @@
                 slideShowSizing();
 
                 
-               
-            $('.primary-button').click(function() {
+  
 
-
-              function imageSliderClick() { 
-                 $(".full-slider-section").each(function() { 
-
-                var oneSlide = $(this).parent().parent().find(".individual-slide")[0].getBoundingClientRect().width;
-                var leftValue = $(this).parent().parent().find(".container-slide").css("left");
-                var leftValueParse = parseFloat(leftValue, 10);
-                var indivPrevWidth = $(this).parent().parent().find(".individual-slide-preview")[0].getBoundingClientRect().width;
-                var prevLeftValue = $(this).parent().parent().find(".container-slide-preview").css("left");
-                var prevLeftValueParse = parseFloat(prevLeftValue); 
-
-                previewSizing();
-                slideShowSizing();
-                
-                //Reposition main images on resize
-                var newOneSlide = $(this).find(".individual-slide")[0].getBoundingClientRect().width;
-               
-          
-
-                var oneSlideDiff = Math.abs(oneSlide/newOneSlide)
-                var newLeftValue = Math.abs(leftValueParse/oneSlideDiff);
-                $(this).find(".container-slide").css("left", - newLeftValue);
-
-                
-                //Reposition preview slides
-                //Get width of individual slide
-                var newPreviewTile = $(this).find(".individual-slide-preview")[0].getBoundingClientRect().width;
-                var prevSlideDiff = Math.abs(indivPrevWidth/newPreviewTile);
-               
-                //Get new left value
-                var newPrevLeftValue = Math.abs(prevLeftValueParse/prevSlideDiff);
-              
-                //set new left value
-              
-                $(this).find(".container-slide-preview").css("left", - newPrevLeftValue);
-       
-                
-                //Recalculate values
-                sliderWidth = $(this).find(".container-fixed")[0].getBoundingClientRect().width;  
-                oneSlide = $(this).find(".individual-slide")[0].getBoundingClientRect().width;             
-                rightStop = $(this).find(".container-slide")[0].getBoundingClientRect().width; 
-                leftValue = $(this).find(".container-slide").css("left");
-                leftValueParse = parseFloat(leftValue, 10);
-               
-
-                indivPrevWidth = $(this).find(".individual-slide-preview")[0].getBoundingClientRect().width;
-                prevLeftValue = $(this).find(".container-slide-preview").css("left");
-                prevLeftValueParse = parseFloat(prevLeftValue);
-                previewSlideWidth = $(this).find('.individual-slide-preview')[0].getBoundingClientRect().width;
-              
-              });
-            }
-
-            setTimeout(imageSliderClick, 200)
-
-            });    
-           
-            /*$('.plus-image').click(function(){
-                function resizeAfter() {
-                   $(".full-slider-section").each(function() { 
-
-                        var oneSlide = $(this).parent().parent().find(".individual-slide")[0].getBoundingClientRect().width;
-                        var leftValue = $(this).parent().parent().find(".container-slide").css("left");
-                        var leftValueParse = parseFloat(leftValue, 10);
-                        var indivPrevWidth = $(this).parent().parent().find(".individual-slide-preview")[0].getBoundingClientRect().width;
-                        var prevLeftValue = $(this).parent().parent().find(".container-slide-preview").css("left");
-                        var prevLeftValueParse = parseFloat(prevLeftValue); 
-
-                        previewSizing();
-                        slideShowSizing();
-                        
-                        //Reposition main images on resize
-                        var newOneSlide = $(this).find(".individual-slide")[0].getBoundingClientRect().width;
-                       
-                  
-
-                        var oneSlideDiff = Math.abs(oneSlide/newOneSlide)
-                        var newLeftValue = Math.abs(leftValueParse/oneSlideDiff);
-                        $(this).find(".container-slide").css("left", - newLeftValue);
-
-                        
-                        //Reposition preview slides
-                        //Get width of individual slide
-                        var newPreviewTile = $(this).find(".individual-slide-preview")[0].getBoundingClientRect().width;
-                        var prevSlideDiff = Math.abs(indivPrevWidth/newPreviewTile);
-                       
-                        //Get new left value
-                        var newPrevLeftValue = Math.abs(prevLeftValueParse/prevSlideDiff);
-                      
-                        //set new left value
-                      
-                        $(this).find(".container-slide-preview").css("left", - newPrevLeftValue);
-               
-                        
-                        //Recalculate values
-                        sliderWidth = $(this).find(".container-fixed")[0].getBoundingClientRect().width;  
-                        oneSlide = $(this).find(".individual-slide")[0].getBoundingClientRect().width;             
-                        rightStop = $(this).find(".container-slide")[0].getBoundingClientRect().width; 
-                        leftValue = $(this).find(".container-slide").css("left");
-                        leftValueParse = parseFloat(leftValue, 10);
-                       
-
-                        indivPrevWidth = $(this).find(".individual-slide-preview")[0].getBoundingClientRect().width;
-                        prevLeftValue = $(this).find(".container-slide-preview").css("left");
-                        prevLeftValueParse = parseFloat(prevLeftValue);
-                        previewSlideWidth = $(this).find('.individual-slide-preview')[0].getBoundingClientRect().width;
-                      
-                    });
-                 }
-                 setTimeout(resizeAfter, 2000);
-            });*/
 
             $(window).on('resize', function(){
+
 
               $(".full-slider-section").each(function() { 
 
@@ -243,7 +129,7 @@
             //Left arrow nav
         
               $(".nav-left").click(function() {
-                var sliderWidth = $(this).parent().parent().find(".container-fixed").width();
+                var sliderWidth = $(this).parent().parent().find(".container-fixed")[0].getBoundingClientRect().width;
                 var numberDivs = $(this).parent().parent().find(".container-slide-preview section").length;
                  var oneSlide = $(this).parent().parent().find(".individual-slide")[0].getBoundingClientRect().width;
                 var rightStop = $(this).parent().parent().find(".container-slide")[0].getBoundingClientRect().width;
@@ -328,8 +214,7 @@
             $(".nav-right").each(function() {
 
               $(this).click(function() {
-
-                var sliderWidth = $(this).parent().parent().find(".container-fixed").width();
+                var sliderWidth = $(this).parent().parent().find(".container-fixed")[0].getBoundingClientRect().width;
                 var numberDivs = $(this).parent().parent().find(".container-slide-preview section").length;
                 var oneSlide = $(this).parent().parent().find(".individual-slide")[0].getBoundingClientRect().width;
                 var rightStop = $(this).parent().parent().find(".container-slide")[0].getBoundingClientRect().width;
@@ -342,7 +227,6 @@
 
                   if ($(":animated").length) 
                     {
-                     
                       return false;
                     } 
 
@@ -351,7 +235,7 @@
                     //moving preview highlight + controlling arrow svgs
                      if ($(this).parent().parent().find(".container-slide-preview section:nth-of-type(-n+" + (numberDivs - 1) + ")").hasClass("selected-img"))  
                       {
-                       
+                        
                         $(this).parent().parent().find(".selected-img").removeClass("selected-img").next().addClass("selected-img");
                         $(this).parent().parent().find(".container-slide").filter(':not(:animated)').animate({left : '-=' + sliderWidth}, 500);
                           
@@ -420,29 +304,42 @@
                 });
              });
           
-          function positionRemodal() {
+          /*function positionRemodal() {
 
-            newRemodalOneSlide = $('.image-slider-remodal').find('.container-fixed').width();
+            newRemodalOneSlide = $('.image-slider-remodal').find('.container-fixed')[0].getBoundingClientRect().width;
           }
 
       
 
         $('.individual-slide img').click(function() {
 
+            $(this).clone().addClass("preview-image").appendTo('.image-slider-remodal');
+            
+            $(this).parent().parent().parent().parent().parent().parent().find('.remodal').toggle();
+            
+          });
+          $(".cancel-button, .remodal").click(function(e){
+            $(".remodal").css("display", "none");
+            $(this).parent().find(".preview-image").remove();
+          });
+
+          $(".remodal div").click(function(e){
+            e.stopPropagation();
+
             var remodalLeftValue = $(this).parent().parent().css("left");
             var remodalLeftValueParse = parseFloat(remodalLeftValue); 
             var remodalOneSlide = $(this).parent().parent().find('.individual-slide')[0].getBoundingClientRect().width;
             $('.image-slider-remodal .full-slider-section').remove();
-            $(this).parent().parent().parent().parent().parent().clone(true, true).appendTo('.image-slider-remodal');
+            $(this).parent().parent().parent().parent().clone(true, true).appendTo('.image-slider-remodal');
             
             setTimeout(previewSizing, 100);
             setTimeout(slideShowSizing, 100);
             
-            var newRemodalOneSlide = $('.image-slider-remodal').find('.individual-slide').width();
+            var newRemodalOneSlide = $('.image-slider-remodal').find('.individual-slide')[0].getBoundingClientRect().width;
             var remodalOneSlideDiff = Math.abs(remodalOneSlide/newRemodalOneSlide);
             var newRemodalLeftValue = Math.abs(remodalLeftValueParse/remodalOneSlideDiff);
 
-            function remodalNewSize() {newRemodalOneSlide = $('.image-slider-remodal').find('.individual-slide').width();}
+            function remodalNewSize() {newRemodalOneSlide = $('.image-slider-remodal').find('.individual-slide')[0].getBoundingClientRect().width;}
             function remodalDiff() {remodalOneSlideDiff = Math.abs(remodalOneSlide/newRemodalOneSlide);}
             function remodalLeft() {newRemodalLeftValue = Math.abs(remodalLeftValueParse/remodalOneSlideDiff);}
             setTimeout(remodalNewSize, 100);
@@ -456,102 +353,14 @@
             
             setTimeout(changeLeft, 100);
             
-            console.log(remodalLeftValue);/*Correct*/
-            console.log(remodalLeftValueParse);/*Correct*/
-            console.log(remodalOneSlide);/*Correct*/
-
-            console.log(newRemodalOneSlide);
-            console.log(newRemodalLeftValue);
+           
             
           
         });
 
+       
+*/
       
 
 
   };  
-
-  $(document).on("click", '.plus-image', function(){
-
-       
-              
-     $(".container-slide").css("left", 0);
-     $(".nav-left svg").css("opacity", "0.2");
-     $(".nav-right svg").css("opacity", "1");
-     $(".container-slide-preview").css("left", 0);      
-      $(".container-slide-preview").remove(); 
-
-        function removeCaption() {
-
-              var captionDiv = document.getElementsByClassName("caption");
-              var captionLength = document.getElementsByClassName("caption").length;
-            
-              for (var i = 0; i < captionLength ; i++) {
-                if (captionDiv[i].getElementsByTagName('p')[0].innerHTML.length == 0) {
-                  captionDiv[i].className = "caption hide-this";
-                 
-                }
-              } 
-
-        }
-        function addSelected() {
-          $(".container-slide section:first-of-type").addClass('selected-img');
-
-        }
-       
-      setTimeout(addSelected, 250);   
-      setTimeout(scriptToLoad, 300);
-      setTimeout(removeCaption, 400); 
-
-    });
-    
-
-  $(document).on("click", '.button', function(){
-     $(".nav-left svg").css("opacity", "0.2");
-     $(".nav-right svg").css("opacity", "1");
-      $(".container-slide").css("left", 0);
-     function addSelected() {
-          $(".container-slide section:first-of-type").addClass('selected-img');
-        }
-      
-  function removeCaption() {
-
-              var captionDiv = document.getElementsByClassName("caption");
-              var captionLength = document.getElementsByClassName("caption").length;
-            
-              for (var i = 0; i < captionLength ; i++) {
-                if (captionDiv[i].getElementsByTagName('p')[0].innerHTML.length == 0) {
-                  captionDiv[i].className = "caption hide-this";
-                  
-                }
-              } 
-
-        }
-
-      
-      setTimeout(addSelected, 250);
-      setTimeout(scriptToLoad, 500); 
-      setTimeout(removeCaption, 400);
- 
-
-    });
-
-
-
-   function addSelectedBoth() {
-          $(".container-slide section:first-of-type").addClass('selected-img');
-          $(".container-slide-preview section:first-of-type").addClass('selected-img');
-
-        }
-  $(window).load(function(){
-              setTimeout(scriptToLoad, 200);
-              setTimeout(addSelectedBoth, 300);
-            });
-   
-
- 
-
-
-    });
-
-  

@@ -5,7 +5,7 @@
 	label, p, .remodal-trigger  {display:block;font-family: 'Roboto', sans-serif;font-weight: 400;margin-bottom:5px;}
 	.remodal-trigger {text-align: right}
 	h1, h2 {font-family: 'Roboto', sans-serif;font-weight:700;border-bottom:2px solid #ffffff;width:100%;}
-	input {display:block;margin-bottom:15px;width:100%;border:none;padding:6px;color:#222947;}
+	input {display:block;margin-bottom:15px;width:100%;border:none;padding:6px;color:#222947;border:#999999 solid 1px;}
 	header {background: #660000}
 	header>div {width:75%;margin:0px auto;color:#ffffff;padding:20px 0;}
 	body {margin:0;}
@@ -21,7 +21,7 @@
 	#codeOutput {width:100%;height:300px;}
 	.readmoretext {height:200px;}
 	.button {background-color:#cccccc;height:50px;color:#222947;font-weight:700;font-size:1.2em;}
-	.caption-text {height:25px;display:block;margin-bottom:15px;width:100%;background-color:#fa6666;border:none;padding:6px;color:#222947;}
+	.caption-text {display:block;margin-bottom:15px;width:100%;background-color:#fa6666;padding:6px;color:#222947;}
 	.button:hover {background-color:#d5d5d5;color:#000000;cursor:pointer;}
 	.clearboth {clear:both;}
 	.hidden {display:none;}
@@ -41,8 +41,8 @@
 	.plain-css {height:350px;}
 	footer {background:#cccccc;padding:20px 12.5%;}
 	footer div {border-top:1px solid #333333; padding:10px 0;color:#333333;}
-	footer div p:first-of-type {float: left}
-	footer div p:last-of-type {float:right;}
+	.footer-left {text-align: left;width:50%;display:inline-block;}
+	.footer-right {text-align: right;width:50%;display:inline-block;}
 
 
 
